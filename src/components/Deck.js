@@ -1,15 +1,19 @@
 import { useState } from 'react';
-import twentyOneCardsDeck from '../utils/createTwentyOneCardsDeck';
+import Card from './Card';
+import cutDeck from '../utils/createTwentyOneCardsDeck';
+import '../styles/components/_deck.css';
+
+const trickDeck = cutDeck();
 
 function Deck() {
 
-  const [deck, setDeck] = useState(twentyOneCardsDeck());
+  const [deck, setDeck] = useState(trickDeck);
 
   return (
     <div className='deck'>
-      { deck.map(({suit, value}, index) => {
+      { deck.map(({suit, value}) => {
           return (
-            <div className={`card card--${suit}`} key={index}>{value} of {suit}</div>
+            <Card suit={suit} value={value} key={`${value}-${suit}`}/>
           )
         }) 
       }

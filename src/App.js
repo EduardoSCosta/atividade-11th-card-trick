@@ -1,5 +1,4 @@
 import Deck from './components/Deck';
-import '../src/styles/components/_deck.css';
 
 function App() {
 
