@@ -1,0 +1,19 @@
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  border: 2px solid;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.card--diamonds,
+.card--hearts {
+  border-color: var(--red-300);
+  color: var(--red-300);
+}
