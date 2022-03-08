@@ -1,4 +1,27 @@
 .cards-row {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+}
+
+.button--select-row {
+  width: 100px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  border: 2px solid;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.card--diamonds,
+.card--hearts {
+  border-color: var(--red-300);
+  color: var(--red-300);
 }
