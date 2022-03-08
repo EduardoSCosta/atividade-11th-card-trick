@@ -1,11 +1,12 @@
 import '../styles/components/_cardsRow.css'
+import Card from './Card';
 
 function CardsRow({ cards }) {
   return(
     <div className='cards-row'>
-      { cards.map(({ suit, value }, index) => {
+      { cards.map(({ suit, value }) => {
         return (
-          <div className={`card card--${suit}`} key={index}>{value} of {suit}</div>
+          <Card suit={suit} value={value} key={`${value}-${suit}`}/>
           )
         })
       }

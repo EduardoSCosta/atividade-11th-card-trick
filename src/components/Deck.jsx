@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import CardsRow from './CardsRow';
 import twentyOneCardsDeck from '../utils/createTwentyOneCardsDeck';
 import filterDeckRows from '../utils/filterDeckRows';
+import '../styles/components/_deck.css';
 
 function Deck() {
 
