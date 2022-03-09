@@ -4,11 +4,8 @@ import cutDeck from '../utils/createTwentyOneCardsDeck';
 import filterDeckRows from '../utils/filterDeckRows';
 import '../styles/components/_deck.css';
 
-<<<<<<< HEAD
 const trickDeck = cutDeck();
-=======
 const TOTAL_ROUNDS = 3;
->>>>>>> create a function to update the rows on user click, up to three times
 
 function Deck() {
 
