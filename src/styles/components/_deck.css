@@ -4,3 +4,10 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+.button--play-again{
+  width: 150px;
+  height: 50px;
+  background-color: var(--blue-300);
+  color: var(--white);
+}

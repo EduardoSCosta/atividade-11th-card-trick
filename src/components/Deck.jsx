@@ -33,10 +33,18 @@ function Deck() {
     }
   }
 
+  function restartGame() {
+    setDeck(cutDeck());
+    setRoundNumber(1);
+  }
+
   return (
     <div className='deck'>
       {(roundNumber > 3) ?
-        <Card suit={deck[CHOSEN_CARD].suit} value={deck[CHOSEN_CARD].value} />
+        <>
+          <button type='button' className='button--play-again' onClick={restartGame}>Play again</button>
+          <Card suit={deck[CHOSEN_CARD].suit} value={deck[CHOSEN_CARD].value} />
+        </>
       :
         <>
           <CardsRow cards={firstRow} row='first' selectCallback={nextRoundDeck} />

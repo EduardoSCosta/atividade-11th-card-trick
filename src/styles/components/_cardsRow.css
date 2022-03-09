@@ -13,15 +13,7 @@
   width: 100px;
   height: 50px;
   margin: 10px;
-  border: 2px solid;
-  border-radius: 10px;
   background-color: #ffffff;
-  cursor: pointer;
-  transition: filter 0.2s;
-}
-
-.button--select-row:hover {
-  filter: brightness(0.9);
 }
 
 .card {
