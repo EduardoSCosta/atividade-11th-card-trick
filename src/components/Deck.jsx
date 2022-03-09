@@ -4,9 +4,11 @@ import cutDeck from '../utils/createTwentyOneCardsDeck';
 import filterDeckRows from '../utils/filterDeckRows';
 import '../styles/components/_deck.css';
 import reorderDeck from '../utils/reorderDeck';
+import Card from './Card';
 
 const trickDeck = cutDeck();
 const TOTAL_ROUNDS = 3;
+const CHOSEN_CARD = 10;
 
 function Deck() {
 
@@ -33,9 +35,15 @@ function Deck() {
 
   return (
     <div className='deck'>
-      <CardsRow cards={firstRow} row='first' selectCallback={nextRoundDeck} />
-      <CardsRow cards={secondRow} row='second' selectCallback={nextRoundDeck} />
-      <CardsRow cards={thirdRow} row='third' selectCallback={nextRoundDeck} />
+      {(roundNumber > 3) ?
+        <Card suit={deck[CHOSEN_CARD].suit} value={deck[CHOSEN_CARD].value} />
+      :
+        <>
+          <CardsRow cards={firstRow} row='first' selectCallback={nextRoundDeck} />
+          <CardsRow cards={secondRow} row='second' selectCallback={nextRoundDeck} />
+          <CardsRow cards={thirdRow} row='third' selectCallback={nextRoundDeck} />
+        </>
+      }
     </div>
   );
 }
