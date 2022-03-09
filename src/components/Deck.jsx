@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import CardsRow from './CardsRow';
-import twentyOneCardsDeck from '../utils/createTwentyOneCardsDeck';
+import cutDeck from '../utils/createTwentyOneCardsDeck';
 import filterDeckRows from '../utils/filterDeckRows';
 import '../styles/components/_deck.css';
 
+const trickDeck = cutDeck();
+
 function Deck() {
 
-  const [deck, setDeck] = useState(twentyOneCardsDeck());
+  const [deck, setDeck] = useState([...trickDeck]);
   const [firstRow, setFirstRow] = useState([]);
   const [secondRow, setSecondRow] = useState([]);
   const [thirdRow, setThirdRow] = useState([]);
