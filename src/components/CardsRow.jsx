@@ -7,7 +7,7 @@ function CardsRow({ cards, selectRow, buttonTitle }) {
       <button type='button' className='button--select-row' onClick={selectRow}>
         {buttonTitle}
       </button>
-      { cards.map(({ suit, value }, index) => {
+      { cards.map(({ suit, value }) => {
         return (
           <Card suit={suit} value={value} key={`${value}-${suit}`}/>
           )
