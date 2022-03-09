@@ -11,3 +11,10 @@
   background-color: var(--blue-300);
   color: var(--white);
 }
+
+.button--play-again{
+  width: 150px;
+  height: 50px;
+  background-color: var(--blue-300);
+  color: var(--white);
+}
