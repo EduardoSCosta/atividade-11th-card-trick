@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/settings/_colors.css';
 import './styles/generic/_box-sizing.css';
 import './styles/generic/_resets.css';
+import './styles/elements/_button.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
