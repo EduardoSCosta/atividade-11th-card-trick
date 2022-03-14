@@ -4,7 +4,7 @@ import cutDeck from '../utils/createTwentyOneCardsDeck';
 import filterDeckRows from '../utils/filterDeckRows';
 import '../styles/components/_deck.css';
 import reorderDeck from '../utils/reorderDeck';
-import Card from './Card';
+import EndScreen from './EndScreen';
 
 const trickDeck = cutDeck();
 const TOTAL_ROUNDS = 3;
@@ -17,6 +17,8 @@ function Deck() {
   const [secondRow, setSecondRow] = useState([]);
   const [thirdRow, setThirdRow] = useState([]);
   const [roundNumber, setRoundNumber] = useState(1);
+  
+  const isGameOver = roundNumber > TOTAL_ROUNDS;
 
   useEffect(()=> {
     setFirstRow(filterDeckRows(deck, 0));
@@ -38,13 +40,11 @@ function Deck() {
     setRoundNumber(1);
   }
 
+
   return (
     <div className='deck'>
-      {(roundNumber > 3) ?
-        <>
-          <button type='button' className='button--play-again' onClick={restartGame}>Play again</button>
-          <Card suit={deck[CHOSEN_CARD].suit} value={deck[CHOSEN_CARD].value} />
-        </>
+      {(isGameOver) ?
+        <EndScreen card={deck[CHOSEN_CARD]} restartGame={restartGame}/>
       :
         <>
           <CardsRow cards={firstRow} row='first' selectCallback={nextRoundDeck} />
