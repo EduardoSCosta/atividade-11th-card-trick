@@ -3,6 +3,7 @@ import CardsRow from './CardsRow';
 import cutDeck from '../utils/createTwentyOneCardsDeck';
 import filterDeckRows from '../utils/filterDeckRows';
 import '../styles/components/_deck.css';
+import reorderDeck from '../utils/reorderDeck';
 
 const trickDeck = cutDeck();
 const TOTAL_ROUNDS = 3;
@@ -22,27 +23,19 @@ function Deck() {
   }, [deck])
 
   function nextRoundDeck(selectedRow) {
-    if (roundNumber > TOTAL_ROUNDS) {
-      return;
-    }
+    if (TOTAL_ROUNDS >= roundNumber) {
+      const reorderedDeck = reorderDeck(selectedRow, firstRow, secondRow, thirdRow);
 
-    let mergedDeck = [];
-    if(selectedRow === "firstRow") {
-      mergedDeck = [...secondRow, ...firstRow, ...thirdRow];
-    } else if (selectedRow === "secondRow") {
-      mergedDeck = [...firstRow, ...secondRow, ...thirdRow];
-    } else {
-      mergedDeck = [...firstRow, ...thirdRow, ...secondRow];
+      setDeck(reorderedDeck);
+      setRoundNumber(roundNumber + 1);
     }
-    setDeck(mergedDeck);
-    setRoundNumber(roundNumber + 1);
   }
 
   return (
     <div className='deck'>
-      <CardsRow cards={firstRow} selectRow={() => nextRoundDeck('firstRow')} buttonTitle='First Row'/>
-      <CardsRow cards={secondRow} selectRow={() => nextRoundDeck('secondRow')} buttonTitle='Second Row'/>
-      <CardsRow cards={thirdRow} selectRow={() => nextRoundDeck('thirdRow')} buttonTitle='Third Row'/>
+      <CardsRow cards={firstRow} row='first' selectCallback={nextRoundDeck} />
+      <CardsRow cards={secondRow} row='second' selectCallback={nextRoundDeck} />
+      <CardsRow cards={thirdRow} row='third' selectCallback={nextRoundDeck} />
     </div>
   );
 }
