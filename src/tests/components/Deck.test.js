@@ -12,9 +12,9 @@ describe('<Deck />', () =>{
 
   it('should render the "Play again" button after three rounds', () => {
     render(<Deck />);
-    userEvent.click(screen.getByRole('button', {name: "First Row"}))
-    userEvent.click(screen.getByRole('button', {name: "Second Row"}))
-    userEvent.click(screen.getByRole('button', {name: "Third Row"}))
+    userEvent.click(screen.getByRole('button', {name: "first row"}))
+    userEvent.click(screen.getByRole('button', {name: "second row"}))
+    userEvent.click(screen.getByRole('button', {name: "third row"}))
     const playAgainButtonElement = screen.queryByRole('button', {name: 'Play again'});
 
     expect(playAgainButtonElement).toBeInTheDocument();
@@ -22,10 +22,10 @@ describe('<Deck />', () =>{
 
   it('should not render the card rows after three rounds', () => {
     render(<Deck />);
-    userEvent.click(screen.getByRole('button', {name: "First Row"}))
-    userEvent.click(screen.getByRole('button', {name: "Second Row"}))
-    userEvent.click(screen.getByRole('button', {name: "Third Row"}))
-    const cardsRowsElements = screen.queryByRole('button', {name: / Row/});
+    userEvent.click(screen.getByRole('button', {name: "first row"}))
+    userEvent.click(screen.getByRole('button', {name: "second row"}))
+    userEvent.click(screen.getByRole('button', {name: "third row"}))
+    const cardsRowsElements = screen.queryByRole('button', {name: / row/});
 
     expect(cardsRowsElements).toBeNull();
   })
